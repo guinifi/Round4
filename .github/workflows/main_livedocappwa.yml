@@ -51,8 +51,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'livedocappwa'
-          # Your publish profile secret should go here as it was in your original file
-
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_503A887978554FAC84319DFC8ED01AB8 }}
           package: .
