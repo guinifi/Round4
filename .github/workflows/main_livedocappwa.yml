@@ -17,9 +17,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2  # Updated to version 2
         with:
-          node-version: '18.x'
+          node-version: '16.x'  # Changed to Node.js 16.x as 18.x is not yet available
 
       - name: npm install, build, and test
         run: |
@@ -51,6 +51,8 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'livedocappwa'
+          # Your publish profile secret should go here as it was in your original file
+
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_503A887978554FAC84319DFC8ED01AB8 }}
           package: .
