@@ -1,11 +1,15 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000; // PORT environment variable is important for Azure
+const path = require('path');
 
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
+app.use(express.static('public')); // Put your static files like HTML in a folder named "public"
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/appform.html'));
 });
 
+const port = process.env.PORT || 3000;
+
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+    console.log(`Server running on http://localhost:${port}/`);
 });
