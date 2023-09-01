@@ -16,16 +16,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Node.js version
-        uses: actions/setup-node@v2  # Updated to version 2
-        with:
-          node-version: '16.x'  # Changed to Node.js 16.x as 18.x is not yet available
+      - name: Navigate to subfolder
+        run: cd Round4/Healthcare
 
-      - name: List directory
-        run: ls -la  # This step will list the files in the current directory
+      - name: Set up Node.js version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
 
       - name: npm install, build, and test
         run: |
+          cd Round4/Healthcare
           npm install
           npm run build --if-present
           npm run test --if-present
@@ -34,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .
+          path: Round4/Healthcare
 
   deploy:
     runs-on: ubuntu-latest
@@ -55,4 +56,4 @@ jobs:
         with:
           app-name: 'livedocappwa'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_503A887978554FAC84319DFC8ED01AB8 }}
-          package: .
+          package: Round4/Healthcare
