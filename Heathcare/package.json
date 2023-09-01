@@ -2,9 +2,9 @@
   "name": "healthcare",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",  // Make sure your server file is named index.js or change this to match
+  "main": "index.js",
   "scripts": {
-    "start": "node index.js",  // This tells Azure how to start your app
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
