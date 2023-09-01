@@ -21,7 +21,7 @@ jobs:
 
     - name: Install, build, and test
       run: |
-        cd livedocappwa  # Change this to your actual folder name
+        cd Heathcare
         npm install
         npm run build --if-present
         npm run test --if-present
@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: node-app
-        path: livedocappwa  # Change this to your actual folder name
+        path: Heathcare
 
   deploy:
     runs-on: ubuntu-latest
@@ -54,5 +54,3 @@ jobs:
 
     # - name: Deploy to Azure Web App
     #   run: az webapp up -n livedocappwa -s ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-    #   run: az webapp up -n livedocapp -s ${{ secrets.AZURE_SUBSCRIPTION_ID }}
