@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: '16.x'  # Changed to Node.js 16.x as 18.x is not yet available
 
+      - name: List directory
+        run: ls -la  # This step will list the files in the current directory
+
       - name: npm install, build, and test
         run: |
           npm install
